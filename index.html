@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="css.css"/>
+<link href="http://fonts.googleapis.com/css?family=Play" rel="stylesheet" type="text/css">
+<link href="favicon.ico" rel="icon">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<title>Clock</title>
+<script type="text/javascript">
+function time()
+{ 
+
+var d = new Date();
+var h = d.getHours();
+var m = d.getMinutes();
+var s = d.getSeconds();
+m=zero(m);
+s=zero(s);
+
+
+var hour = d.getHours();
+
+//pm or am
+if (hour>12) //dont use h
+{
+var pm="PM"
+}
+else if (hour == 12)
+{
+var pm="PM"
+}
+else
+{
+var pm="AM"
+}
+
+
+//24 hour to 12 hr time
+if (h>13)
+{
+var hr=h-12;
+}
+else if (h==13)
+{
+var hr=1
+}
+else if (h==0)
+{
+var hr=12
+}
+else
+{
+var hr=h;
+}
+
+  
+
+document.getElementById("pm").innerHTML=pm
+document.getElementById("hours").innerHTML=hr
+document.getElementById("minutes").innerHTML=m
+document.getElementById("sec").innerHTML=s
+
+
+//alarm
+/*
+if (h==6 & m==26 & s==11)
+{
+document.getElementsByTagName("audio")[0].play();
+document.getElementById("snooze").style.left="0px"
+}
+*/
+
+
+
+if (window.orientation == 0)
+{
+document.getElementById("rotate").style.display="block"
+document.getElementById("rotateback").style.display="block"
+}
+else
+{
+document.getElementById("rotate").style.display="none"
+document.getElementById("rotateback").style.display="none"
+}
+
+
+setTimeout('time()',50);
+//end of function time
+}
+
+
+function zero(time)
+{
+if (time<10)
+  {
+  time="0" + time;
+  }
+return time;
+}
+
+
+function blk() 
+{
+x = 1;
+setInterval(change, 1000);
+}
+
+function change() {
+
+if(x == 1) { blink="white"; x = 2; } 
+
+else { blink="black"; x = 1; }
+
+document.getElementById("pm").style.color=blink
+}
+
+
+
+blk();
+
+
+window.addEventListener('load',time,false);
+
+
+
+function color(color) 
+{
+document.getElementById("hoursback").style.background=color;
+document.getElementById("minutesback").style.background=color;
+}
+
+function hide() { document.getElementById('top').style.top='-100%' }
+function show() { document.getElementById('top').style.top='0px' }
+
+
+
+
+</script>
+</head>
+<body>
+
+<audio src="alarm.mp3" loop id="audio"></audio>
+<div id="snooze" class="snooze" onclick="location.reload();" >SNOOZE</div>
+
+<div id="rotate" class="rotate"></div>
+<div id="rotateback" class="rotateback"></div>
+
+
+<div class="hoursback" id="hoursback"></div>
+<div class="minutesback" id="minutesback"></div>
+
+<div class="line"></div>
+
+<div id="hours" class="hours"></div>
+<div id="pm" class="pm"></div>
+<div id="minutes" class="minutes"></div>
+<div class="down" onclick="show()">&darr;</div>
+
+
+
+<div class="top" id="top">
+<button type="button" class="one" onclick="color('#FFFFFF');hide();" id="sec">&nbsp;</button>
+<button type="button" class="two" onclick="color('#E6E6E6');hide();">&nbsp;</button>
+<button type="button" class="three" onclick="color('#CCCCCC');hide();">&nbsp;</button>
+<button type="button" class="four" onclick="color('#B2B2B2');hide();">&nbsp;</button>
+<button type="button" class="five" onclick="color('#999999');hide();">&nbsp;</button>
+<button type="button" class="six" onclick="color('#808080');hide();">&nbsp;</button>
+<button type="button" class="seven" onclick="color('#666666');hide();">&nbsp;</button>
+<button type="button" class="eight" onclick="color('#4C4C4C');hide();">&nbsp;</button>
+<button type="button" class="nine" onclick="color('#333333');hide();">&nbsp;</button>
+<button type="button" class="ten" onclick="color('#1A1A1A');hide();">&nbsp;</button>
+</div>
+
+
+</body>
+</html>
