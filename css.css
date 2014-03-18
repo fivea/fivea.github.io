@@ -224,3 +224,17 @@ height:100%;
 width:100%;
 z-index:9999998;
 }
+
+.day
+{
+position: fixed;
+text-align:right; 
+right:4%;
+bottom: 10%;
+z-index:999;
+font-size:150%;
+font-size:150%;
+color:black;
+font-weight: bold;
+
+}

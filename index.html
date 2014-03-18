@@ -20,6 +20,7 @@ var m = d.getMinutes();
 var s = d.getSeconds();
 var ms = d.getMilliseconds();
 
+
 m=zero(m);
 s=zero(s);
 ms=milsec(ms);
@@ -90,10 +91,24 @@ document.getElementById("rotate").style.display="none"
 document.getElementById("rotateback").style.display="none"
 }
 
+var list=new Array()
+list[0]="Sunday"
+list[1]="Monday"
+list[2]="Tuesday"
+list[3]="Wednesday"
+list[4]="Thursday"
+list[5]="Friday"
+list[6]="Saturday"
+
+var day = list[ d.getDay() ];
+
+document.getElementById("day").innerHTML=day
 
 setTimeout('time()',50);
 //end of function time
 }
+
+
 
 
 function zero(time)
@@ -170,10 +185,9 @@ function show() { document.getElementById('top').style.top='0px' }
 
 <div class="line"></div>
 <div id="hours" class="hours"></div>
-<a href="24.html"><div id="pm" class="pm" ></div></a>
-<div id="minutes" class="minutes"></div>
+<div id="pm" class="pm" ></div><div id="minutes" class="minutes"></div>
 <div class="down" onclick="show()">&darr;</div>
-
+<div class="day" id="day"></div>
 
 
 <div class="top" id="top">
