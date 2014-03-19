@@ -5,12 +5,16 @@
 <link rel="stylesheet" type="text/css" media="all" href="css.css"/>
 <link href="http://fonts.googleapis.com/css?family=Play" rel="stylesheet" type="text/css">
 <link href="favicon.ico" rel="icon">
+<script src="//rawgithub.com/EightMedia/hammer.js/master/hammer.min.js"></script>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<meta name="viewport" content="user-scalable=no">
 
 <title>Clock</title>
+
 <script type="text/javascript">
+	
 function time()
 { 
 
@@ -170,6 +174,18 @@ document.getElementById("minutesback").style.background=color;
 function hide() { document.getElementById('top').style.top='-100%' }
 function show() { document.getElementById('top').style.top='0px' }
 
+//swiping
+var hammertime = Hammer(document).on("dragdown", function(event) 
+{
+show()
+}
+)
+
+var hammertime = Hammer(document).on("dragup", function(event) 
+{
+hide()
+}
+)
 </script>
 </head>
 <body>
