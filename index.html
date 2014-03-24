@@ -6,10 +6,11 @@
 <link href="http://fonts.googleapis.com/css?family=Play" rel="stylesheet" type="text/css">
 <link href="favicon.ico" rel="icon">
 <script src="//rawgithub.com/EightMedia/hammer.js/master/hammer.min.js"></script>
-
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<meta name="viewport" content="user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="maximum-scale=1, user-scalable=no, minimal-ui">
 
 <title>Clock</title>
 
@@ -171,8 +172,8 @@ document.getElementById("hoursback").style.background=color;
 document.getElementById("minutesback").style.background=color;
 }
 
-function hide() { document.getElementById('top').style.top='-100%' }
-function show() { document.getElementById('top').style.top='0px' }
+function hide() { document.getElementById('top').style.top='-100%';document.getElementById('pull').style.top='1%' }
+function show() { document.getElementById('top').style.top='0px';document.getElementById('pull').style.top='110%' }
 
 //swiping
 var hammertime = Hammer(document).on("dragdown", function(event) 
@@ -190,6 +191,7 @@ hide()
 </head>
 <body>
 
+
 <audio src="alarm.mp3" loop id="audio"></audio>
 <div id="snooze" class="snooze" onclick="location.reload();" >SNOOZE</div>
 
@@ -203,11 +205,12 @@ hide()
 <div id="hours" class="hours"></div>
 <div id="pm" class="pm" ></div>
 <div id="minutes" class="minutes"></div>
-<div class="down" onclick="show()">&darr;</div>
 <div class="day" id="day"></div>
+<div id="pull" class="pull" onclick="show()"></div>
 
 
 <div class="top" id="top">
+
 <button type="button" class="one" onclick="color('#FFFFFF');hide();" id="more">&nbsp;</button>
 <button type="button" class="two" onclick="color('#E6E6E6');hide();">&nbsp;</button>
 <button type="button" class="three" onclick="color('#CCCCCC');hide();">&nbsp;</button>
@@ -220,6 +223,8 @@ hide()
 <button type="button" class="ten" onclick="color('#1A1A1A');hide();">&nbsp;</button>
 </div>
 
-
+<script>
+(function(e,t,n,r,i,s,o){e["GoogleAnalyticsObject"]=i;e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date;s=t.createElement(n),o=t.getElementsByTagName(n)[0];s.async=1;s.src=r;o.parentNode.insertBefore(s,o)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-49251660-1","fivea.github.io");ga("send","pageview")
+</script>
 </body>
 </html>
