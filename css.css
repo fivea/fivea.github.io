@@ -1,3 +1,27 @@
+@media (min-device-width: 480px)
+{
+.rotate { display:none }
+.rotateback { display:none }
+.day { font-size:300% }
+.pm { font-size:300% }
+
+}
+ 
+@media (max-device-width: 480px)
+{
+.day { font-size:500% }
+.pm { font-size:500% }
+
+}
+
+
+@font-face {
+  font-family: 'Play';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Play'), url(play.woff) format('woff');
+}
+
 body 
 {
 background:black;
@@ -37,8 +61,6 @@ height:80%;
 bottom: 10%;
 width:45%;
 z-index:5;
-border: 5px solid gray;
-
 }
 
 
@@ -65,7 +87,6 @@ right: 3%;
 height:80%;
 width:45%;
 z-index:10;
-border: 5px solid gray;
 }
 
 
@@ -76,7 +97,6 @@ text-align:center;
 left:4%;
 bottom: 10%;
 z-index:999;
-font-size:275%;
 color:black;
 font-weight: bold;
 }
@@ -88,25 +108,13 @@ font-weight: bold;
 .line { 
 position: fixed;
 top: 50%;
-height: 0.5%;
+height: 1%;
 width:100%;
 background:black;
 z-index: 99
 }
 
 
-.down
-{
-color:white;
-position: fixed;
-top: 0%;
-left: 0%;
-cursor:pointer;
-z-index:56;
-font-weight: bold;
-font-size:300%;
-
-}
 
 
 /*color pick*/
@@ -121,6 +129,8 @@ height:20%;
 width:100%;
 z-index:1000000;
 transition-duration: 1s;
+cursor: poiner;
+
 }
 
 
@@ -241,7 +251,6 @@ text-align:right;
 right:4%;
 bottom: 10%;
 z-index:999;
-font-size:275%;
 color:black;
 font-weight: bold;
 
@@ -252,10 +261,11 @@ font-weight: bold;
 position: fixed;
 z-index:999;
 height:2%;
-width:4%;
+width:6%;
 background: gray;
 top:1%;
-right:48%;
+right:47%;
 border-radius: 20px;
 transition-duration: 1s;
+cursor:pointer;
 }

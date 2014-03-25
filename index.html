@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" media="all" href="css.css"/>
-<link href="http://fonts.googleapis.com/css?family=Play" rel="stylesheet" type="text/css">
 <link href="favicon.ico" rel="icon">
 <script src="//rawgithub.com/EightMedia/hammer.js/master/hammer.min.js"></script>
+
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -77,7 +77,7 @@ document.getElementById("more").innerHTML=s + " " + ms
 
 //alarm
 /*
-if (h==6 & m==26 & s==11)
+if (h==6 & m==35 & s==11)
 {
 document.getElementsByTagName("audio")[0].play();
 document.getElementById("snooze").style.left="0px"
@@ -142,24 +142,18 @@ return time;
 
 
 
-function blk() 
-{
+
 x = 1;
 setInterval(change, 1000);
-}
+
 
 function change() {
 
-if(x == 1) { blink="white"; x = 2; } 
+if(x == 1) { document.getElementById("pm").style.display="none"; x = 2; } 
 
-else { blink="black"; x = 1; }
+else { document.getElementById("pm").style.color="black";document.getElementById("pm").style.display="block"; x = 1; }
 
-document.getElementById("pm").style.color=blink
 }
-
-
-
-blk();
 
 
 window.addEventListener('load',time,false);
@@ -170,6 +164,8 @@ function color(color)
 {
 document.getElementById("hoursback").style.background=color;
 document.getElementById("minutesback").style.background=color;
+document.getElementById("pull").style.background=color;
+
 }
 
 function hide() { document.getElementById('top').style.top='-100%';document.getElementById('pull').style.top='1%' }
@@ -179,14 +175,17 @@ function show() { document.getElementById('top').style.top='0px';document.getEle
 var hammertime = Hammer(document).on("dragdown", function(event) 
 {
 show()
-}
-)
+})
 
 var hammertime = Hammer(document).on("dragup", function(event) 
 {
 hide()
-}
-)
+})
+var hammertime = Hammer(document).on("doubletap", function(event) 
+{
+show()
+})
+
 </script>
 </head>
 <body>
