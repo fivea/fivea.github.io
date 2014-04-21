@@ -28,7 +28,7 @@ var ms = d.getMilliseconds();
 
 m=zero(m);
 s=zero(s);
-ms=milsec(ms);
+ms=mzero(ms);
 
 
 var hour = d.getHours();
@@ -76,15 +76,18 @@ document.getElementById("more").innerHTML=s + " " + ms
 
 
 //alarm
-/*
-if (h==6 & m==35 & s==11)
+
+var value = document.getElementById('alarm').value
+var split = value.split(":");
+
+if (h==split[0] & m==split[1] & s==00)
 {
 document.getElementsByTagName("audio")[0].play();
 document.getElementById("snooze").style.left="0px"
 }
-*/
 
 
+//rotate prompt
 if (window.orientation == 0)
 {
 document.getElementById("rotate").style.display="block"
@@ -110,10 +113,8 @@ var day = list[ d.getDay() ];
 document.getElementById("day").innerHTML=day
 
 setTimeout('time()',50);
-//end of function time
+//end of time
 }
-
-
 
 
 function zero(time)
@@ -126,7 +127,7 @@ return time;
 }
 
 
-function milsec(time)
+function mzero(time)
 {
 if (time<10)
 {
@@ -148,11 +149,8 @@ setInterval(change, 1000);
 
 
 function change() {
-
 if(x == 1) { document.getElementById("pm").style.display="none"; x = 2; } 
-
 else { document.getElementById("pm").style.color="black";document.getElementById("pm").style.display="block"; x = 1; }
-
 }
 
 
@@ -168,8 +166,8 @@ document.getElementById("pull").style.background=color;
 
 }
 
-function hide() { document.getElementById('top').style.top='-100%';document.getElementById('pull').style.top='1%' }
-function show() { document.getElementById('top').style.top='0px';document.getElementById('pull').style.top='110%' }
+function hide() { document.getElementById('top').style.top='-100%';document.getElementById('pull').style.top='1%';document.getElementById('alarm').style.top='-100%'}
+function show() { document.getElementById('top').style.top='0px';document.getElementById('pull').style.top='110%';document.getElementById('alarm').style.top='1%' }
 
 //swiping
 var hammertime = Hammer(document).on("dragdown", function(event) 
@@ -192,7 +190,8 @@ show()
 
 
 <audio src="alarm.mp3" loop id="audio"></audio>
-<div id="snooze" class="snooze" onclick="location.reload();" >SNOOZE</div>
+<div id="snooze" class="snooze" onclick="location.reload();">SNOOZE</div>
+<input type="time" name="alarm" class="alarm" id="alarm">
 
 <div id="rotate" class="rotate"></div>
 <div id="rotateback" class="rotateback"></div>

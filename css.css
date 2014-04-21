@@ -1,25 +1,15 @@
-@media (min-device-width: 480px)
+@media (min-device-width: 481px)
 {
 .rotate { display:none }
 .rotateback { display:none }
-.day { font-size:300% }
-.pm { font-size:300% }
-
 }
  
-@media (max-device-width: 480px)
-{
-.day { font-size:500% }
-.pm { font-size:500% }
-
-}
-
 
 @font-face {
   font-family: 'Play';
   font-style: normal;
   font-weight: 400;
-  src: local('Play'), url(play.woff) format('woff');
+  src: local('Play'), url(/play.woff) format('woff');
 }
 
 body 
@@ -99,6 +89,8 @@ bottom: 10%;
 z-index:999;
 color:black;
 font-weight: bold;
+font-size:300%
+
 }
 
 
@@ -253,7 +245,7 @@ bottom: 10%;
 z-index:999;
 color:black;
 font-weight: bold;
-
+font-size:300%
 }
 
 .pull
@@ -268,4 +260,18 @@ right:47%;
 border-radius: 20px;
 transition-duration: 1s;
 cursor:pointer;
+}
+
+alarm
+{
+display:none
+}
+
+.alarm 
+{
+position: fixed;
+z-index:1000009;
+transition-duration: 1s;
+top: -100%;
+left: 1%
 }
